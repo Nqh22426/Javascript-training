@@ -6,8 +6,8 @@ console.log("Việt vị", isOffside);
 console.log("Không việt vị", isOnside);
 
 // Null
-let goal = Null;
-console.log("Goal: ", player);
+let goal = null;
+console.log("Goal: ", goal);
 
 // Undefined
 let match;
