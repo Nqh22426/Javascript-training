@@ -1,0 +1,13 @@
+*{
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 350px;
+    height: 300px;
+    background-color: lightblue;
+    margin: 0 auto;
+    text-align: center;
+}
+
