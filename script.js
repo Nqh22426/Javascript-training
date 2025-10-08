@@ -2,6 +2,7 @@ const inputBox = document.getElementById("input-box");
 const addBtn = document.getElementById("add-btn");
 const taskList = document.getElementById("task-list");
 
+// Add task
 addBtn.addEventListener("click", function(){
     if(inputBox.value === ""){
         alert("Please type your task!");
@@ -20,11 +21,12 @@ addBtn.addEventListener("click", function(){
     inputBox.value = "";
 })
 
+// Task action
 taskList.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
-        e.target.classList.toggle("completed");
+        e.target.classList.toggle("completed"); // Check task
     }
     else if(e.target.tagName === "SPAN"){
-        e.target.parentElement.remove();
+        e.target.parentElement.remove(); // Delete task
     }
 })
