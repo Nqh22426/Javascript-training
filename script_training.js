@@ -17,6 +17,22 @@ match = "1/1/2026";
 console.log("Next Match (Updated):", match);
 
 // Symbol
-const teamA = Symbol("team");
-const teamB = Symbol("team");
-console.log("Team A and Team B are the same:", teamA === teamB);
+const playerA = Symbol("team");
+const playerB = Symbol("team");
+console.log("Player A and Player B are the same person:", playerA === playerB);
+
+// Object
+var theGoat = {
+  name = "Ronaldo";
+  age = 40;
+  born = "Portugal";
+  theSignature = function(){
+    alert("Siuuu!");
+  }
+};
+
+console.log("Cristiano Ronaldo:", theGoat);
+
+// Array
+var topTeam = ["Man City", "Real Madrid", "Bayern Munich"];
+console.log(topTeam);
