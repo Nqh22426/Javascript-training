@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nqhung Portfolio</title>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2 class="logo">Nqhung</h2>
+      <nav>
+        <ul>
+          <li class="active" data-section="home">Home</li>
+          <li data-section="about">About me</li>
+          <li data-section="project">My project</li>
+          <li data-section="contact">Contact me</li>
+        </ul>
+      </nav>
+    </aside>
+
+
+    <main class="content">
+      <section id="home" class="section active">
+        <div class="home-content">
+          <div class="home-text">
+            <h1>Hello, my name is <span class="highlight">Hưng</span></h1>
+            <h2>I'm a <span class="highlight">Web Developer</span></h2>
+            <p>Welcome to my portfolio!</p>
+            <button class="btn-more">More About Me</button>
+          </div>
+          <div class="home-image">
+            <img src="hung1.jpg" alt="Nqhung Profile">
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="section-header">
+          <h1>About Me</h1>
+          <div class="underline"></div>
+        </div>
+        <div class="about-content">
+          <div class="about-main">
+            <h2>I'm <span class="highlight">Hưng</span> and <span class="highlight">Web Developer</span></h2>
+            <p>I am Information Technology student with a foundational knowledge of both Front-end and Back-end website development. My goal is to create responsive, user-friendly websites that deliver exceptional user experiences.</p>
+            
+            <div class="about-info">
+              <div class="info-left">
+                <div class="info-item">
+                  <span class="label">Age:</span> <span class="value">21</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">Address:</span> <span class="value">Hà Nội</span>
+                </div>
+              </div>
+              <div class="info-right">
+                <div class="info-item">
+                  <span class="label">Email:</span> <span class="value">hung.job246@gmail.com</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">Phone:</span> <span class="value">0123456789</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="about-buttons">
+              <button class="btn-cv">My CV</button>
+              <button class="btn-contact">Contact Me</button>
+            </div>
+          </div>
+          
+          <div class="skills-section">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>HTML</span>
+                <span>95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>CSS</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>JavaScript</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="project" class="section">
+        <div class="section-header">
+          <h1>My Project</h1>
+          <div class="underline"></div>
+        </div>
+        <div class="project-grid">
+          <div class="project-item">
+            <div class="project-card">
+              <div class="project-placeholder">Project 1</div>
+            </div>
+          </div>
+          <div class="project-item">
+            <div class="project-card">
+              <div class="project-placeholder">Project 2</div>
+            </div>
+          </div>
+          <div class="project-item">
+            <div class="project-card">
+              <div class="project-placeholder">Project 3</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="section-header">
+          <h1>Contact Me</h1>
+          <div class="underline"></div>
+        </div>
+        
+        <div class="contact-cards">
+          <div class="contact-card">
+            <h4>Call Me</h4>
+            <p>0123456789</p>
+          </div>
+          <div class="contact-card">
+            <h4>Email</h4>
+            <p>hung.job246@gmail.com</p>
+          </div>
+        </div>
+        
+        <div class="contact-form-section">
+          <h2>SEND ME A MESSAGE</h2>
+          <form class="contact-form">
+            <div class="form-row">
+              <input type="text" placeholder="Name" required>
+              <input type="email" placeholder="Email" required>
+            </div>
+            <textarea placeholder="Message" rows="5" required></textarea>
+            <button type="submit" class="btn-send">Send</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
