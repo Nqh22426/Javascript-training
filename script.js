@@ -19,14 +19,27 @@ addBtn.addEventListener("click", function(){
     }
 
     inputBox.value = "";
+    storeTask();
 })
 
 // Task action
 taskList.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
         e.target.classList.toggle("completed"); // Check task
+        storeTask();
     }
     else if(e.target.tagName === "SPAN"){
         e.target.parentElement.remove(); // Delete task
+        storeTask();
     }
 })
+
+// Store TODO list
+function storeTask(){
+    localStorage.setItem("data", taskList.innerHTML);
+}
+
+function displayTask(){
+    taskList.innerHTML = localStorage.getItem("data");
+}
+displayTask();
