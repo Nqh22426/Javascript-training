@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <h1>Weather</h1>
+
+    <!-- Button -->
+    <div class="controls">
+      <button id="btnGet">Get Weather (Geolocation)</button>
+      <button id="btnNotify">Allow Notification</button>
+    </div>
+
+    <!-- Chọn thành phố -->
+    <div class="city-selector">
+      <label for="citySelect"><strong>Or select a city:</strong></label>
+      <select id="citySelect">
+        <option value="">-- Select --</option>
+      </select>
+    </div>
+
+    <!-- Hiển thị thông tin thời tiết -->
+    <div id="result" class="result hidden">
+      <div class="row">
+        <div><strong>Location:</strong> <span id="location"></span></div>
+        <div><strong>Time:</strong> <span id="time"></span></div>
+      </div>
+      <div class="row">
+        <div class="temperature"><span id="temp"></span>°C</div>
+        <div>
+          <div><strong>Wind:</strong> <span id="wind"></span> m/s</div>
+          <div><strong>Weather:</strong> <span id="weathercode"></span></div>
+        </div>
+      </div>
+
+      <div class="note">Last fetched. Auto refresh every 5 minutes.</div>
+
+      <div class="actions">
+        <button id="btnRefresh">Refresh now</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
