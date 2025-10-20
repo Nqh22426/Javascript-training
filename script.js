@@ -71,6 +71,13 @@ function addCityInfo(payload, cityKey) {
   return payload;
 }
 
+// Xử lý và hiển thị weather data
+function processWeather(payload, cityKey = currentCityKey) {
+  addCityInfo(payload, cityKey);
+  showWeather(payload);
+  saveToLocal(payload);
+}
+
 function getWeatherDescription(code) {
   const descriptions = {
     0: 'Clear',
@@ -169,9 +176,7 @@ function getWeatherForSelectedCity() {
   
   fetchWeatherByCoords(city.lat, city.lon)
     .then(payload => {
-      addCityInfo(payload, cityKey);
-      showWeather(payload);
-      saveToLocal(payload);
+      processWeather(payload, cityKey);
       showNotificationIfAllowed(payload);
       startAutoRefresh();
     })
@@ -203,9 +208,7 @@ function startAutoRefresh() {
   autoRefreshTimer = setInterval(() => {
     fetchWeatherByCoords(currentCoords.latitude, currentCoords.longitude)
       .then(payload => {
-        addCityInfo(payload, currentCityKey);
-        showWeather(payload);
-        saveToLocal(payload);
+        processWeather(payload);
         showNotificationIfAllowed(payload);
       })
       .catch(err => console.warn('Auto-refresh failed:', err.message || err));
@@ -225,11 +228,7 @@ btnRefresh.addEventListener('click', () => {
   btnRefresh.disabled = true;
   
   fetchWeatherByCoords(currentCoords.latitude, currentCoords.longitude)
-    .then(payload => {
-      addCityInfo(payload, currentCityKey);
-      showWeather(payload);
-      saveToLocal(payload);
-    })
+    .then(payload => processWeather(payload))
     .catch(err => console.warn('Refresh failed:', err.message || err))
     .finally(() => {
       btnRefresh.textContent = originalText;
