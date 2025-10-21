@@ -4,7 +4,7 @@ const container = document.querySelector(".container");
 const countDisplay = document.querySelector(".count");
 const resetBtn = document.getElementById("reset-btn");
 
-// 
+// Xử lý đếm
 document.addEventListener("click", function(){
     count++;
     countDisplay.textContent = count;
