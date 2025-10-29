@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <title>React TODO List</title>
+</head>
+<body>
+  <div id="root"></div>
+  <!-- React + ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- Babel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- React app -->
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+    const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2,8);
+
+    function TodoApp() {
+      const [todos, setTodos] = useState(() => {
+        try {
+          const raw = localStorage.getItem('todos_v1');
+          return raw ? JSON.parse(raw) : [];
+        } catch {
+          return [];
+        }
+      });
+
+      const [text, setText] = useState('');
+      const [filter, setFilter] = useState('all');
+      const [editId, setEditId] = useState(null);
+      const [editText, setEditText] = useState('');
+
+      useEffect(() => {
+        localStorage.setItem('todos_v1', JSON.stringify(todos));
+      }, [todos]);
+
+      function addTodo(e) {
+        e.preventDefault();
+        const v = text.trim();
+        if (!v) return;
+        const newItem = { id: uid(), text: v, done: false, createdAt: Date.now() };
+        setTodos(prev => [newItem, ...prev]);
+        setText('');
+      }
+
+      function toggleDone(id) {
+        setTodos(prev => prev.map(t => t.id === id ? { ...t, done: !t.done } : t));
+      }
+
+      function deleteTodo(id) {
+        setTodos(prev => prev.filter(t => t.id !== id));
+        if (editId === id) {
+          setEditId(null);
+          setEditText('');
+        }
+      }
+
+      function startEdit(id, currentText) {
+        setEditId(id);
+        setEditText(currentText);
+      }
+
+      function saveEdit(id) {
+        const v = editText.trim();
+        if (!v) return;
+        setTodos(prev => prev.map(t => t.id === id ? { ...t, text: v } : t));
+        setEditId(null);
+        setEditText('');
+      }
+
+      function cancelEdit() {
+        setEditId(null);
+        setEditText('');
+      }
+
+      const filtered = todos.filter(t => {
+        if (filter === 'all') return true;
+        if (filter === 'active') return !t.done;
+        return t.done;
+      });
+
+      return (
+        <div className="app">
+          <header>
+            <h2>TODO List</h2>
+          </header>
+
+          <form onSubmit={addTodo} className="todo-form">
+            <input
+              type="text"
+              placeholder="Type your work..."
+              value={text}
+              onChange={e => setText(e.target.value)}
+            />
+            <button type="submit">Add</button>
+          </form>
+
+          <div className="filters">
+            <button onClick={() => setFilter('all')} style={{ background: filter==='all' ? 'blue' : undefined }}>All</button>
+            <button onClick={() => setFilter('active')} style={{ background: filter==='active' ? 'blue' : undefined }}>Unfinished</button>
+            <button onClick={() => setFilter('done')} style={{ background: filter==='done' ? 'blue' : undefined }}>Done</button>
+          </div>
+
+          <div className="todo-list">
+            {filtered.length === 0 ? <div className="empty">No tasks</div> :
+              filtered.map(item => (
+                <div key={item.id} className="todo">
+                  <input type="checkbox" checked={item.done} onChange={() => toggleDone(item.id)} />
+                  <div className="text">
+                    {editId === item.id ? (
+                      <input className="edit-input" value={editText} onChange={e => setEditText(e.target.value)} />
+                    ) : (
+                      <span style={{ textDecoration: item.done ? 'line-through' : 'none' }}>{item.text}</span>
+                    )}
+                    <div className="timestamp">Created: {new Date(item.createdAt).toLocaleString('en-US')}</div>
+                  </div>
+
+                  <div className="actions">
+                    {editId === item.id ? (
+                      <>
+                        <button onClick={() => saveEdit(item.id)}>Save</button>
+                        <button onClick={cancelEdit} style={{ background:'slategray' }}>Cancel</button>
+                      </>
+                    ) : (
+                      <>
+                        <button onClick={() => startEdit(item.id, item.text)}>Edit</button>
+                        <button onClick={() => deleteTodo(item.id)} style={{ background:'red' }}>Delete</button>
+                      </>
+                    )}
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<TodoApp />);
+
+  </script>
+</body>
+</html>
