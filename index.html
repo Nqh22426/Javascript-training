@@ -17,8 +17,6 @@
 
   <script type="text/babel">
     const { useState, useEffect, useMemo, useCallback, useRef, useContext, createContext } = React;
-    
-    // Tạo ID unique
     const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2,8);
 
     // Custom hook lưu localStorage
