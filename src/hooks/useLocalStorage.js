@@ -7,7 +7,6 @@ import { useState, useEffect } from 'react';
  * @returns {[any, function]} - [value, setValue]
  */
 function useLocalStorage(key, initialValue) {
-  // Khởi tạo state từ localStorage
   const [value, setValue] = useState(() => {
     try {
       const raw = localStorage.getItem(key);
