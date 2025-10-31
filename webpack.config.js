@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    clean: true, // xóa thư mục dist cũ trước khi build
+    clean: true,
   },
   
   // Dev server
@@ -34,7 +34,7 @@ module.exports = {
         }
       },
       {
-        // Xử lý file .css
+        // Xử lý file css
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       }
