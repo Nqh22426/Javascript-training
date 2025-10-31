@@ -1,0 +1,117 @@
+body { 
+  font-family: Arial, sans-serif; 
+  background: lightblue; 
+  margin: 0; 
+  padding: 20px; 
+}
+
+.app { 
+  max-width: 600px; 
+  margin: 0 auto; 
+  background: white; 
+  padding: 20px; 
+  border-radius: 8px; 
+}
+
+header { 
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+
+header h2 {
+  margin: 0;
+  color: blue;
+  font-size: 28px;
+}
+
+.todo-form, .form-row, .filters, .todo-list, .todo {
+  display: flex;
+}
+
+.todo-form {
+  flex-direction: column;
+  gap: 8px; 
+  margin-bottom: 12px; 
+}
+
+.form-row, .filters {
+  gap: 8px;
+}
+
+.filters {
+  margin-bottom: 12px; 
+}
+
+.filters button.active {
+  background: blue;
+}
+
+.todo-list {
+  flex-direction: column; 
+  gap: 8px; 
+}
+
+.todo {
+  padding: 10px; 
+  border-radius: 6px; 
+  align-items: center; 
+  gap: 10px; 
+  background: whitesmoke; 
+}
+
+.todo .text { 
+  flex: 1; 
+}
+
+input[type="text"], button {
+  padding: 8px;
+  border-radius: 6px;
+}
+
+input[type="text"] { 
+  flex: 1; 
+  border: 1px solid gray; 
+}
+
+input.error {
+  border-color: red;
+}
+
+button { 
+  padding: 8px 10px; 
+  border: none; 
+  background: steelblue; 
+  color: white; 
+  cursor: pointer; 
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Gộp các text nhỏ */
+.error-message, .timestamp, .empty {
+  font-size: 12px;
+}
+
+.error-message {
+  color: red;
+}
+
+.timestamp, .empty {
+  color: gray;
+}
+
+.actions button { 
+  margin-left: 6px; 
+  background: yellowgreen; 
+}
+
+.actions .btn-delete {
+  background: red;
+}
+
+.actions .btn-cancel {
+  background: slategray;
+}
