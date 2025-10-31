@@ -1,6 +1,6 @@
 body { 
-  font-family: Arial, sans-serif; 
-  background: lightblue; 
+  font-family:Arial, sans-serif; 
+  background:lightblue; 
   margin:0; 
   padding:20px; 
 }
@@ -24,44 +24,23 @@ header h2 {
   font-size:28px;
 }
 
-.todo-form { 
-  display:flex; 
+.todo-form, .filters, .todo-list, .todo {
+  display:flex;
+}
+
+.todo-form, .filters {
   gap:8px; 
   margin-bottom:12px; 
 }
 
-input[type="text"] { 
-  flex:1; 
-  padding:8px; 
-  border-radius:6px; 
-  border:1px solid gray; 
-}
-
-button { 
-  padding:8px 10px; 
-  border-radius:6px; 
-  border:none; 
-  background:steelblue; 
-  color:white; 
-  cursor:pointer; 
-}
-
-.filters { 
-  display:flex; 
-  gap:8px; 
-  margin-bottom:12px; 
-}
-
-.todo-list { 
-  display:flex; 
+.todo-list {
   flex-direction:column; 
   gap:8px; 
 }
 
-.todo { 
+.todo {
   padding:10px; 
   border-radius:6px; 
-  display:flex; 
   align-items:center; 
   gap:10px; 
   background:whitesmoke; 
@@ -71,16 +50,22 @@ button {
   flex:1; 
 }
 
-.timestamp { 
-  font-size:12px; 
-  color:dimgray; 
+input[type="text"], button {
+  border-radius:6px;
 }
 
-.edit-input { 
-  padding:6px; 
-  border-radius:6px; 
-  border:1px solid lightgray; 
-  width:100%; 
+input[type="text"] { 
+  flex:1; 
+  padding:8px; 
+  border:1px solid gray; 
+}
+
+button { 
+  padding:8px 10px; 
+  border:none; 
+  background:steelblue; 
+  color:white; 
+  cursor:pointer; 
 }
 
 .actions button { 
@@ -88,7 +73,7 @@ button {
   background:yellowgreen; 
 }
 
-.empty { 
+.timestamp, .empty {
+  font-size:12px; 
   color:gray; 
-  font-size:13px; 
 }
