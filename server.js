@@ -16,14 +16,14 @@ const { auth, isAdmin } = require('./middleware/auth');
 
 const app = express();
 
-// SECURITY MIDDLEWARE
+// MIDDLEWARE
 // Helmet
 app.use(helmet());
 
 // CORS
 app.use(cors());
 
-// Rate Limiting: Giới hạn requests
+// Rate Limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 phút
   max: 100, // Giới hạn 100 requests/15 phút
