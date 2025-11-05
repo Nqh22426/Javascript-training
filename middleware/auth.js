@@ -1,7 +1,7 @@
-// Authentication Middleware
+// Auth Middleware
 const jwt = require('jsonwebtoken');
 
-// Kiểm tra user đã đăng nhập chưa
+// Kiểm tra user đã đăng nhập chưa 
 const auth = (req, res, next) => {
   try {
     // Lấy token từ header
