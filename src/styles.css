@@ -1,0 +1,193 @@
+body { 
+  font-family: Arial, sans-serif; 
+  background: lightblue; 
+  margin: 0; 
+  padding: 20px; 
+}
+
+.app { 
+  max-width: 600px; 
+  margin: 0 auto; 
+  background: white; 
+  padding: 20px; 
+  border-radius: 8px; 
+}
+
+header { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; 
+}
+
+header h2 {
+  margin: 0;
+  color: blue;
+  font-size: 28px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.btn-logout {
+  background: tomato !important;
+  padding: 6px 12px !important;
+}
+
+.todo-form, .form-row, .filters, .todo-list, .todo {
+  display: flex;
+}
+
+.todo-form {
+  flex-direction: column;
+  gap: 8px; 
+  margin-bottom: 12px; 
+}
+
+.form-row, .filters {
+  gap: 8px;
+}
+
+.filters {
+  margin-bottom: 12px; 
+}
+
+.filters button.active {
+  background: blue;
+}
+
+.todo-list {
+  flex-direction: column; 
+  gap: 8px; 
+}
+
+.todo {
+  padding: 10px; 
+  border-radius: 6px; 
+  align-items: center; 
+  gap: 10px; 
+  background: whitesmoke; 
+}
+
+.todo .text { 
+  flex: 1; 
+}
+
+input[type="text"], button {
+  padding: 8px;
+  border-radius: 6px;
+}
+
+input[type="text"] { 
+  flex: 1; 
+  border: 1px solid gray; 
+}
+
+input.error {
+  border-color: red;
+}
+
+button { 
+  padding: 8px 10px; 
+  border: none; 
+  background: steelblue; 
+  color: white; 
+  cursor: pointer; 
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message, .timestamp, .empty {
+  font-size: 12px;
+}
+
+.error-message {
+  color: red;
+}
+
+.timestamp, .empty {
+  color: gray;
+}
+
+.actions button { 
+  margin-left: 6px; 
+  background: yellowgreen; 
+}
+
+.actions .btn-delete {
+  background: red;
+}
+
+.actions .btn-cancel {
+  background: slategray;
+}
+
+/* AUTH PAGES */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.auth-box {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-box h2 {
+  text-align: center;
+  color: blue;
+  margin-bottom: 20px;
+}
+
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-box input {
+  padding: 12px;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.auth-box button {
+  padding: 12px;
+  background: blue;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.auth-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: gray;
+}
+
+.auth-link a {
+  color: blue;
+  font-weight: bold;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  color: gray;
+}
